@@ -1,6 +1,6 @@
 *.doc
 *.aux
-*.div
+*.dvi
 *.log
 *.pdf
 *.lof
