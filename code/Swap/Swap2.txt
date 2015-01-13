@@ -1,0 +1,99 @@
+public void test() {
+	$V $v = new $V();
+	for ($v.$var0 = 1; $v.$var0 < n - 1; $v.$var0++) {
+		$o0[(7 * $v.$var0 * $v.$var0 - 1 != n * n) ? 0 : 1].m(this, $v);
+		$o1[(7 * n * n - 1 != $v.$var0 * $v.$var0) ? 0 : 1].m(this, $v);
+		$o2[(7 * $v.$var0 * $v.$var0 - 1 != n * n) ? 0 : 1].m(this, $v);
+		$o3[(7 * n * n - 1 != $v.$var0 * $v.$var0) ? 0 : 1].m(this, $v);
+		$o4[(7 * $v.$var0 * $v.$var0 - 1 != n * n) ? 0 : 1].m(this, $v);
+		$o5[(7 * n * n - 1 != $v.$var0 * $v.$var0) ? 0 : 1].m(this, $v);
+	}
+	return;
+}
+
+private static final $O[] $o5 = { $O.$o5a, $O.$o5b };
+static class $5A extends $O {
+	void m(Swap2 $this, $V $v) {
+		swap($v.$var0, $v.$var0 - 1);
+	}
+}
+static class $5B extends $O {
+	void m(Swap2 $this, $V $v) {
+		swap($v.$var0 - 1, $v.$var0 + 1);
+	}
+}
+
+private static final $O[] $o4 = { $O.$o4a, $O.$o4b };
+static class $4A extends $O {
+	void m(Swap2 $this, $V $v) {
+		swap($v.$var0, $v.$var0 + 1);
+	}
+}
+static class $4B extends $O {
+	void m(Swap2 $this, $V $v) {
+		swap($v.$var0, $v.$var0 - 1);
+	}
+}
+
+private static final $O[] $o3 = { $O.$o3a, $O.$o3b };
+static class $3A extends $O {
+	void m(Swap2 $this, $V $v) {
+		swap($v.$var0, $this.n - 1 - $v.$var0);
+	}
+}
+static class $3B extends $O {
+	void m(Swap2 $this, $V $v) {
+		swap($v.$var0 - 1, $this.n - 1 - $v.$var0);
+	}
+}
+
+private static final $O[] $o2 = { $O.$o2a, $O.$o2b };
+static class $2A extends $O {
+	void m(Swap2 $this, $V $v) {
+		swap($v.$var0 - 1, $v.$var0 + 1);
+	}
+}
+static class $2B extends $O {
+	void m(Swap2 $this, $V $v) {
+		swap($v.$var0, $v.$var0 + 1);
+	}
+}
+
+private static final $O[] $o1 = { $O.$o1a, $O.$o1b };
+static class $1A extends $O {
+	void m(Swap2 $this, $V $v) {
+		swap($v.$var0 + 1, $this.n - 1 - $v.$var0);
+	}
+}
+static class $1B extends $O {
+	void m(Swap2 $this, $V $v) {
+		swap($v.$var0, $this.n - 1 - $v.$var0);
+	}
+}
+
+private static final $O[] $o0 = { $O.$o0a, $O.$o0b };
+static class $0A extends $O {
+	void m(Swap2 $this, $V $v) {
+		swap($v.$var0, $this.n - 1 - $v.$var0);
+	}
+}
+static class $0B extends $O {
+	void m(Swap2 $this, $V $v) {
+		swap($v.$var0 + 1, $this.n - 1 - $v.$var0);
+	}
+}
+
+static class $V {
+	int $var0;
+}
+
+static abstract class $O {
+	abstract void m(Swap2 $this, $V $v);
+	static final $O $o0a = new $0A(), $o0b = new $0B(),
+		$o1a = new $1A(), $o1b = new $1B(),
+		$o2a = new $2A(), $o2b = new $2B(),
+		$o3a = new $3A(), $o3b = new $3B(),
+		$o4a = new $4A(), $o4b = new $4B(),
+		$o5a = new $5A(), $o5b = new $5B();
+}
+

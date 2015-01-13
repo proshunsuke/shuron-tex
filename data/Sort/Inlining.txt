@@ -1,0 +1,51 @@
+java -XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining Sort 10000
+     52    1             java.lang.String::hashCode (67 bytes)
+     62    2             Sort::swap (23 bytes)
+     63    1 %           Sort::sort @ 16 (66 bytes)
+                            @ 35   Sort::swap (23 bytes)   inline (hot)
+
+java -XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining Sort1 10000
+     53    1             java.lang.String::hashCode (67 bytes)
+     97    2             Sort1::swap (23 bytes)
+     98    1 %           Sort1::sort @ 39 (136 bytes)
+                            @ 76   Sort1::swap (23 bytes)   inline (hot)
+                            @ 86   Sort1::swap (23 bytes)   call site not reached
+
+java -XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining Sort2 10000
+     53    1             java.lang.String::hashCode (67 bytes)
+     68    2             Sort2$$1A::m (14 bytes)
+     68    3             Sort2::access$0 (6 bytes)
+                            @ 10   Sort2::access$0 (6 bytes)   inline (hot)
+                            @ 2   Sort2::swap (23 bytes)   inline (hot)
+                              @ 2   Sort2::swap (23 bytes)   inline (hot)
+     69    4             Sort2::swap (23 bytes)
+     69    5             Sort2$$2A::m (6 bytes)
+     69    1 %           Sort2::sort @ 66 (217 bytes)
+                            @ 122   Sort2$$1A::m (14 bytes)   inline (hot)
+                              @ 10   Sort2::access$0 (6 bytes)   inline (hot)
+                                @ 2   Sort2::swap (23 bytes)   inline (hot)
+                            @ 162   Sort2$$2A::m (6 bytes)   inline (hot)
+                            @ 51   Sort2$$0A::m (6 bytes)   inline (hot)
+
+java -XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining Sort3 10000
+     52    1             java.lang.String::hashCode (67 bytes)
+    100    2             Sort3::swap (23 bytes)
+    101    1 %           Sort3::sort @ 39 (138 bytes)
+                            @ 76   Sort3::swap (23 bytes)   inline (hot)
+                            @ 86   Sort3::swap (23 bytes)   call site not reached
+
+java -XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining Sort4 10000
+     53    1             java.lang.String::hashCode (67 bytes)
+    112    2             Sort4$$1A::m (14 bytes)
+    112    3             Sort4::access$0 (6 bytes)
+                            @ 2   Sort4::swap (23 bytes)           inline (hot)
+                    @ 10   Sort4::access$0 (6 bytes)   inline (hot)
+                              @ 2   Sort4::swap (23 bytes)   inline (hot)
+    113    4             Sort4::swap (23 bytes)
+    113    5             Sort4$$2A::m (6 bytes)
+    113    1 %           Sort4::sort @ 51 (171 bytes)
+                            @ 92   Sort4$$1A::m (14 bytes)   inline (hot)
+                              @ 10   Sort4::access$0 (6 bytes)   inline (hot)
+                                @ 2   Sort4::swap (23 bytes)   inline (hot)
+                            @ 116   Sort4$$2A::m (6 bytes)   inline (hot)
+                            @ 36   Sort4$$0A::m (6 bytes)   inline (hot)

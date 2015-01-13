@@ -1,0 +1,75 @@
+public void sort() {
+	$V $v = new $V();
+	for ($v.$var0 = 0; $v.$var0 < size; $v.$var0++) {
+		$o0[size % 10][$v.$var0 % 10].m(this, $v);
+		for ($v.$var2 = size - 1; $v.$var2 > $v.$var0; $v.$var2--) {
+			if (array[$v.$var2] < array[$v.$var2 - 1]) {
+				$o1[size % 10][$v.$var2 % 10].m(this, $v);
+				$o2[$v.$var0 % 10][$v.$var2 % 10].m(this, $v);
+			}
+		}
+		if (!$v.$var1) {
+			break;
+		}
+	}
+}
+
+private static final $O[][] $o2 = new $O[10][10];
+static class $2A extends $O {
+	void m(Sort4 $this, $V $v) {
+		$v.$var1 = true;
+	}
+}
+static class $2B extends $O {
+	void m(Sort4 $this, $V $v) {
+		$v.$var1 = false;
+	}
+}
+
+private static final $O[][] $o1 = new $O[10][10];
+static class $1A extends $O {
+	void m(Sort4 $this, $V $v) {
+		swap($v.$var2, $v.$var2 - 1);
+	}
+}
+static class $1B extends $O {
+	void m(Sort4 $this, $V $v) {
+		swap($v.$var2, $v.$var2 + 1);
+	}
+}
+
+private static final $O[][] $o0 = new $O[10][10];
+static class $0A extends $O {
+	void m(Sort4 $this, $V $v) {
+		$v.$var1 = false;
+	}
+}
+static class $0B extends $O {
+	void m(Sort4 $this, $V $v) {
+		$v.$var1 = true;
+	}
+}
+
+static class $V {
+	int $var0;
+	boolean $var1;
+	int $var2;
+}
+
+static abstract class $O {
+	abstract void m(Sort4 $this, $V $v);
+	static final $O $o0a = new $0A(), $o0b = new $0B(),
+			$o1a = new $1A(), $o1b = new $1B(),
+			$o2a = new $2A(), $o2b = new $2B();
+}
+
+static {
+	for (int x = 0; x < 10; x++) {
+		for (int y = 0; y < 10; y++) {
+			$o0[x][y] = (7 * x * x - 1 != y * y) ? $O.$o0a : $O.$o0b;
+			$o1[x][y] = (7 * x * x - 1 != y * y) ? $O.$o1a : $O.$o1b;
+			$o2[x][y] = (7 * x * x - 1 != y * y) ? $O.$o2a : $O.$o2b;
+		}
+	}
+}
+

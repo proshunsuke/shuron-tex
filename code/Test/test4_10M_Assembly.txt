@@ -1,0 +1,255 @@
+     66    1 %           Test::test4 @ 17 (52 bytes)
+                            @ 30   Test$A::m (9 bytes)   inline (hot)
+Decoding compiled method 0x000000010f5be410:
+Code:
+[Entry Point]
+[Verified Entry Point]
+[Constants]
+  # {method} 'test4' '(I)V' in 'Test'
+  0x000000010f5be580: callq  0x000000010ed32236  ;   {runtime_call}
+  0x000000010f5be585: data32 data32 nopw 0x0(%rax,%rax,1)
+  0x000000010f5be590: mov    %eax,-0x14000(%rsp)
+  0x000000010f5be597: push   %rbp
+  0x000000010f5be598: sub    $0x30,%rsp
+  0x000000010f5be59c: mov    0x10(%rsi),%r13d
+  0x000000010f5be5a0: mov    0x18(%rsi),%ebp
+  0x000000010f5be5a3: mov    0x8(%rsi),%r14d
+  0x000000010f5be5a7: mov    (%rsi),%ebx
+  0x000000010f5be5a9: mov    %rsi,%rdi
+  0x000000010f5be5ac: movabs $0x10ed86450,%r10
+  0x000000010f5be5b6: callq  *%r10              ;*iload_3
+                                                ; - Test::test4@17 (line 95)
+  0x000000010f5be5b9: mov    %ebx,%r10d
+  0x000000010f5be5bc: inc    %r10d
+  0x000000010f5be5bf: movabs $0x7e5a08f60,%rcx  ;   {oop(a 'java/lang/Class' = 'Test')}
+  0x000000010f5be5c9: xor    %r11d,%r11d
+  0x000000010f5be5cc: cmp    %r11d,%r10d
+  0x000000010f5be5cf: cmovl  %r11d,%r10d
+  0x000000010f5be5d3: mov    $0xa,%r11d
+  0x000000010f5be5d9: cmp    %r11d,%r10d
+  0x000000010f5be5dc: mov    $0xa,%r8d
+  0x000000010f5be5e2: cmovg  %r8d,%r10d
+  0x000000010f5be5e6: movabs $0x7e5a0ebb8,%rsi  ;   {oop(a 'Test$O'[][10] )}
+  0x000000010f5be5f0: jmp    0x000000010f5be610
+  0x000000010f5be5f2: mov    (%rsp),%ebp        ;*goto
+                                                ; - Test::test4@42 (line 94)
+  0x000000010f5be5f5: inc    %r14d              ; OopMap{rcx=Oop rsi=Oop off=120}
+                                                ;*goto
+                                                ; - Test::test4@42 (line 94)
+  0x000000010f5be5f8: test   %eax,-0xdd05fe(%rip)        # 0x000000010e7ee000
+                                                ;*goto
+                                                ; - Test::test4@42 (line 94)
+                                                ;   {poll}
+  0x000000010f5be5fe: cmp    $0xa,%r14d
+  0x000000010f5be602: jge    0x000000010f5be77b  ;*iconst_0
+                                                ; - Test::test4@15 (line 95)
+  0x000000010f5be608: xor    %ebx,%ebx
+  0x000000010f5be60a: mov    $0x1,%r10d         ;*iload_3
+                                                ; - Test::test4@17 (line 95)
+  0x000000010f5be610: cmp    $0xa,%ebx
+  0x000000010f5be613: jge    0x000000010f5be5f5  ;*if_icmpge
+                                                ; - Test::test4@20 (line 95)
+  0x000000010f5be615: mov    0x80(%rcx),%rdi    ;*getstatic val
+                                                ; - Test$A::m@0 (line 121)
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be61c: cmp    $0xa,%r14d
+  0x000000010f5be620: jae    0x000000010f5be7d1
+  0x000000010f5be626: mov    0x10(%rsi,%r14,4),%eax  ;*aaload
+                                                ; - Test::test4@27 (line 96)
+  0x000000010f5be62b: mov    0xc(%r12,%rax,8),%r8d  ; implicit exception: dispatches to 0x000000010f5be839
+  0x000000010f5be630: cmp    %r8d,%ebx
+  0x000000010f5be633: jae    0x000000010f5be7f0
+  0x000000010f5be639: mov    %ebp,(%rsp)
+  0x000000010f5be63c: lea    (%r12,%rax,8),%r9
+  0x000000010f5be640: mov    0x10(%r9,%rbx,4),%ebp  ;*aaload
+                                                ; - Test::test4@29 (line 96)
+  0x000000010f5be645: mov    0x8(%r12,%rbp,8),%r11d  ; implicit exception: dispatches to 0x000000010f5be829
+  0x000000010f5be64a: cmp    $0xf5790a7b,%r11d  ;   {oop('Test$A')}
+  0x000000010f5be651: jne    0x000000010f5be811  ;*invokevirtual m
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be657: add    $0x1,%rdi          ;*ladd
+                                                ; - Test$A::m@4 (line 121)
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be65b: mov    %rdi,0x80(%rcx)    ;*putstatic val
+                                                ; - Test$A::m@5 (line 121)
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be662: inc    %ebx               ;*iinc
+                                                ; - Test::test4@33 (line 95)
+  0x000000010f5be664: cmp    %r10d,%ebx
+  0x000000010f5be667: jge    0x000000010f5be66e  ;*if_icmpge
+                                                ; - Test::test4@20 (line 95)
+  0x000000010f5be669: mov    (%rsp),%ebp
+  0x000000010f5be66c: jmp    0x000000010f5be61c
+  0x000000010f5be66e: mov    $0xa,%r10d
+  0x000000010f5be674: cmp    %r8d,%r10d
+  0x000000010f5be677: cmovg  %r8d,%r10d
+  0x000000010f5be67b: mov    %r10d,%r11d
+  0x000000010f5be67e: add    $0xfffffffffffffffd,%r11d
+  0x000000010f5be682: cmp    %r11d,%r10d
+  0x000000010f5be685: mov    $0x80000000,%r10d
+  0x000000010f5be68b: cmovl  %r10d,%r11d
+  0x000000010f5be68f: cmp    %r11d,%ebx
+  0x000000010f5be692: jge    0x000000010f5be738
+  0x000000010f5be698: nopl   0x0(%rax,%rax,1)   ;*aaload
+                                                ; - Test::test4@27 (line 96)
+  0x000000010f5be6a0: mov    0x10(%r9,%rbx,4),%r10d  ;*aaload
+                                                ; - Test::test4@29 (line 96)
+  0x000000010f5be6a5: mov    0x8(%r12,%r10,8),%ebp  ; implicit exception: dispatches to 0x000000010f5be829
+  0x000000010f5be6aa: cmp    $0xf5790a7b,%ebp   ;   {oop('Test$A')}
+  0x000000010f5be6b0: jne    0x000000010f5be7a6  ;*invokevirtual m
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be6b6: movslq %ebx,%rdx
+  0x000000010f5be6b9: mov    0x14(%r9,%rdx,4),%r10d  ;*aaload
+                                                ; - Test::test4@29 (line 96)
+  0x000000010f5be6be: mov    %rdi,%rbp
+  0x000000010f5be6c1: add    $0x1,%rbp
+  0x000000010f5be6c5: mov    %rbp,0x80(%rcx)    ;*putstatic val
+                                                ; - Test$A::m@5 (line 121)
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be6cc: mov    0x8(%r12,%r10,8),%ebp  ; implicit exception: dispatches to 0x000000010f5be829
+  0x000000010f5be6d1: cmp    $0xf5790a7b,%ebp   ;   {oop('Test$A')}
+  0x000000010f5be6d7: jne    0x000000010f5be795  ;*invokevirtual m
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be6dd: mov    0x18(%r9,%rdx,4),%r10d  ;*aaload
+                                                ; - Test::test4@29 (line 96)
+  0x000000010f5be6e2: mov    %rdi,%rbp
+  0x000000010f5be6e5: add    $0x2,%rbp
+  0x000000010f5be6e9: mov    %rbp,0x80(%rcx)    ;*putstatic val
+                                                ; - Test$A::m@5 (line 121)
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be6f0: mov    0x8(%r12,%r10,8),%ebp  ; implicit exception: dispatches to 0x000000010f5be829
+  0x000000010f5be6f5: cmp    $0xf5790a7b,%ebp   ;   {oop('Test$A')}
+  0x000000010f5be6fb: jne    0x000000010f5be7ac  ;*invokevirtual m
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be701: mov    0x1c(%r9,%rdx,4),%r10d  ;*aaload
+                                                ; - Test::test4@29 (line 96)
+  0x000000010f5be706: mov    %rdi,%rdx
+  0x000000010f5be709: add    $0x3,%rdx
+  0x000000010f5be70d: mov    %rdx,0x80(%rcx)    ;*putstatic val
+                                                ; - Test$A::m@5 (line 121)
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be714: mov    0x8(%r12,%r10,8),%ebp  ; implicit exception: dispatches to 0x000000010f5be829
+  0x000000010f5be719: cmp    $0xf5790a7b,%ebp   ;   {oop('Test$A')}
+  0x000000010f5be71f: jne    0x000000010f5be79b  ;*invokevirtual m
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be721: add    $0x4,%rdi          ;*ladd
+                                                ; - Test$A::m@4 (line 121)
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be725: mov    %rdi,0x80(%rcx)    ;*putstatic val
+                                                ; - Test$A::m@5 (line 121)
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be72c: add    $0x4,%ebx          ;*iinc
+                                                ; - Test::test4@33 (line 95)
+  0x000000010f5be72f: cmp    %r11d,%ebx
+  0x000000010f5be732: jl     0x000000010f5be6a0  ;*if_icmpge
+                                                ; - Test::test4@20 (line 95)
+  0x000000010f5be738: cmp    $0xa,%ebx
+  0x000000010f5be73b: jge    0x000000010f5be5f2
+  0x000000010f5be741: data32 xchg %ax,%ax       ;*aaload
+                                                ; - Test::test4@27 (line 96)
+  0x000000010f5be744: cmp    %r8d,%ebx
+  0x000000010f5be747: jae    0x000000010f5be7ed
+  0x000000010f5be74d: mov    0x10(%r9,%rbx,4),%r10d  ;*aaload
+                                                ; - Test::test4@29 (line 96)
+  0x000000010f5be752: mov    0x8(%r12,%r10,8),%ebp  ; implicit exception: dispatches to 0x000000010f5be829
+  0x000000010f5be757: cmp    $0xf5790a7b,%ebp   ;   {oop('Test$A')}
+  0x000000010f5be75d: jne    0x000000010f5be817  ;*invokevirtual m
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be763: add    $0x1,%rdi          ;*ladd
+                                                ; - Test$A::m@4 (line 121)
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be767: mov    %rdi,0x80(%rcx)    ;*putstatic val
+                                                ; - Test$A::m@5 (line 121)
+                                                ; - Test::test4@30 (line 96)
+  0x000000010f5be76e: inc    %ebx               ;*iinc
+                                                ; - Test::test4@33 (line 95)
+  0x000000010f5be770: cmp    $0xa,%ebx
+  0x000000010f5be773: jge    0x000000010f5be5f2  ;*if_icmpge
+                                                ; - Test::test4@20 (line 95)
+  0x000000010f5be779: jmp    0x000000010f5be744  ;*goto
+                                                ; - Test::test4@48 (line 93)
+  0x000000010f5be77b: inc    %r13d              ; OopMap{rcx=Oop rsi=Oop off=510}
+                                                ;*goto
+                                                ; - Test::test4@48 (line 93)
+  0x000000010f5be77e: test   %eax,-0xdd0784(%rip)        # 0x000000010e7ee000
+                                                ;*goto
+                                                ; - Test::test4@48 (line 93)
+                                                ;   {poll}
+  0x000000010f5be784: cmp    %ebp,%r13d
+  0x000000010f5be787: jge    0x000000010f5be81d  ;*if_icmpge
+                                                ; - Test::test4@4 (line 93)
+  0x000000010f5be78d: xor    %r14d,%r14d
+  0x000000010f5be790: jmpq   0x000000010f5be608
+  0x000000010f5be795: lea    (%r12,%r10,8),%rbp
+  0x000000010f5be799: jmp    0x000000010f5be7a2
+  0x000000010f5be79b: lea    (%r12,%r10,8),%rbp  ;*aaload
+                                                ; - Test::test4@29 (line 96)
+  0x000000010f5be79f: add    $0x2,%ebx
+  0x000000010f5be7a2: inc    %ebx               ;*iinc
+                                                ; - Test::test4@33 (line 95)
+  0x000000010f5be7a4: jmp    0x000000010f5be7b3
+  0x000000010f5be7a6: lea    (%r12,%r10,8),%rbp
+  0x000000010f5be7aa: jmp    0x000000010f5be7b3
+  0x000000010f5be7ac: lea    (%r12,%r10,8),%rbp  ;*aaload
+                                                ; - Test::test4@29 (line 96)
+  0x000000010f5be7b0: add    $0x2,%ebx
+  0x000000010f5be7b3: mov    $0xffffffde,%esi
+  0x000000010f5be7b8: mov    %r13d,0x4(%rsp)
+  0x000000010f5be7bd: mov    %r14d,0x8(%rsp)
+  0x000000010f5be7c2: mov    %ebx,0xc(%rsp)
+  0x000000010f5be7c6: nop
+  0x000000010f5be7c7: callq  0x000000010f598020  ; OopMap{rbp=Oop off=588}
+                                                ;*invokevirtual m
+                                                ; - Test::test4@30 (line 96)
+                                                ;   {runtime_call}
+  0x000000010f5be7cc: callq  0x000000010ed32236  ;   {runtime_call}
+  0x000000010f5be7d1: mov    $0xffffffe4,%esi
+  0x000000010f5be7d6: mov    %r13d,(%rsp)
+  0x000000010f5be7da: mov    %ebx,0x8(%rsp)
+  0x000000010f5be7de: mov    %r14d,0xc(%rsp)
+  0x000000010f5be7e3: callq  0x000000010f598020  ; OopMap{off=616}
+                                                ;*aaload
+                                                ; - Test::test4@27 (line 96)
+                                                ;   {runtime_call}
+  0x000000010f5be7e8: callq  0x000000010ed32236  ;*aaload
+                                                ; - Test::test4@27 (line 96)
+                                                ;   {runtime_call}
+  0x000000010f5be7ed: mov    (%rsp),%ebp
+  0x000000010f5be7f0: mov    $0xffffffe4,%esi
+  0x000000010f5be7f5: mov    %r13d,(%rsp)
+  0x000000010f5be7f9: mov    %r14d,0x4(%rsp)
+  0x000000010f5be7fe: mov    %eax,0xc(%rsp)
+  0x000000010f5be802: mov    %ebx,0x10(%rsp)
+  0x000000010f5be806: nop
+  0x000000010f5be807: callq  0x000000010f598020  ; OopMap{[12]=NarrowOop off=652}
+                                                ;*aaload
+                                                ; - Test::test4@29 (line 96)
+                                                ;   {runtime_call}
+  0x000000010f5be80c: callq  0x000000010ed32236  ;   {runtime_call}
+  0x000000010f5be811: shl    $0x3,%rbp
+  0x000000010f5be815: jmp    0x000000010f5be7b3
+  0x000000010f5be817: lea    (%r12,%r10,8),%rbp  ;*aaload
+                                                ; - Test::test4@29 (line 96)
+  0x000000010f5be81b: jmp    0x000000010f5be7b3
+  0x000000010f5be81d: add    $0x30,%rsp
+  0x000000010f5be821: pop    %rbp
+  0x000000010f5be822: test   %eax,-0xdd0828(%rip)        # 0x000000010e7ee000
+                                                ;   {poll_return}
+  0x000000010f5be828: retq   
+  0x000000010f5be829: mov    $0xfffffff6,%esi
+  0x000000010f5be82e: nop
+  0x000000010f5be82f: callq  0x000000010f598020  ; OopMap{off=692}
+                                                ;*invokevirtual m
+                                                ; - Test::test4@30 (line 96)
+                                                ;   {runtime_call}
+  0x000000010f5be834: callq  0x000000010ed32236  ;   {runtime_call}
+  0x000000010f5be839: mov    $0xfffffff6,%esi
+  0x000000010f5be83e: mov    %ebx,%ebp
+  0x000000010f5be840: data32 xchg %ax,%ax
+  0x000000010f5be843: callq  0x000000010f598020  ; OopMap{off=712}
+                                                ;*aaload
+                                                ; - Test::test4@29 (line 96)
+                                                ;   {runtime_call}
+  0x000000010f5be848: callq  0x000000010ed32236  ;*aaload
+                                                ; - Test::test4@29 (line 96)
+                                                ;   {runtime_call}

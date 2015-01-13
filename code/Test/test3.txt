@@ -1,0 +1,20 @@
+static final boolean[][] bAry;
+static {
+	bAry = new boolean[10][10];
+	for(int x=0;x<10;x++){
+		for(int y=0;y<10;y++){
+			bAry[x][y]=Pt(x,y);
+		}
+	}
+}
+
+static void test3(int n) {
+	for(int i=0;i<n;i++)
+		for(int j=0;j<10;j++)
+			for(int k=0;k<10;k++){
+				if(bAry[j][k])
+					val++;
+				else
+					val--;
+			}
+}

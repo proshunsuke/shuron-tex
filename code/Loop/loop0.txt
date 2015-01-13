@@ -1,0 +1,11 @@
+static long loop(int max) {
+	for (int i = 0; i < max; i++) {
+		cnt = (int) Math.sqrt(cnt);
+		while (cnt < 5) {
+			val1 += max;
+			val2 *= cnt;
+			cnt++;
+		}
+	}
+	return val1 + val2;
+}

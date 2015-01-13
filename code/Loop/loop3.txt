@@ -1,0 +1,38 @@
+static long loop3(int max) {
+	for (int i = 0; i < max; i++) {
+		o3[Pf(max, cnt) ? 0 : 1].m(max);
+	}
+	return val1 + val2;
+}
+
+static final O3[] o3 = { O3.ot, O3.of };
+static abstract class O3 {
+	abstract void m(int max);
+	static O3 ot = new O3T(), of = new O3F(), oloop = new O3Loop();
+}
+
+static class O3T extends O3 {
+	@Override
+	void m(int max) {
+		val2 *= cnt;
+		cnt++;
+		oloop.m(max);
+	}
+}
+static class O3F extends O3 {
+	@Override
+	void m(int max) {
+		cnt = (int) Math.sqrt(cnt);
+		oloop.m(max);
+	}
+}
+
+static class O3Loop extends O3 {
+	@Override
+	void m(int max) {
+		if (cnt < 5) {
+			val1 += max;
+			ot.m(max);
+		}
+	}
+}

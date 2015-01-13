@@ -1,0 +1,54 @@
+public void test() {
+	for (int $var0 = 1; $var0 < n - 1; $var0++) {
+		if ($b0[$var0 % 10][n % 10]) {
+			swap($var0, n - 1 - $var0);
+		} else {
+			swap($var0 + 1, n - 1 - $var0);
+		}
+		if ($b1[n % 10][$var0 % 10]) {
+			swap($var0 + 1, n - 1 - $var0);
+		} else {
+			swap($var0, n - 1 - $var0);
+		}
+		if ($b2[$var0 % 10][n % 10]) {
+			swap($var0 - 1, $var0 + 1);
+		} else {
+			swap($var0, $var0 + 1);
+		}
+		if ($b3[n % 10][$var0 % 10]) {
+			swap($var0, n - 1 - $var0);
+		} else {
+			swap($var0 - 1, n - 1 - $var0);
+		}
+		if ($b4[$var0 % 10][n % 10]) {
+			swap($var0, $var0 + 1);
+		} else {
+			swap($var0, $var0 - 1);
+		}
+		if ($b5[n % 10][$var0 % 10]) {
+			swap($var0, $var0 - 1);
+		} else {
+			swap($var0 - 1, $var0 + 1);
+		}
+	}
+	return;
+}
+
+private static final boolean[][] $b5 = new boolean[10][10];
+private static final boolean[][] $b4 = new boolean[10][10];
+private static final boolean[][] $b3 = new boolean[10][10];
+private static final boolean[][] $b2 = new boolean[10][10];
+private static final boolean[][] $b1 = new boolean[10][10];
+private static final boolean[][] $b0 = new boolean[10][10];
+static {
+	for (int x = 0; x < 10; x++) {
+		for (int y = 0; y < 10; y++) {
+			$b0[x][y] = (7 * x * x - 1 != y * y);
+			$b1[x][y] = (7 * x * x - 1 != y * y);
+			$b2[x][y] = (7 * x * x - 1 != y * y);
+			$b3[x][y] = (7 * x * x - 1 != y * y);
+			$b4[x][y] = (7 * x * x - 1 != y * y);
+			$b5[x][y] = (7 * x * x - 1 != y * y);
+		}
+	}
+}

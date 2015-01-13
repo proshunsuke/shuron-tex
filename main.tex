@@ -1,0 +1,149 @@
+\documentclass[a4paper,12pt]{jsbook}
+\usepackage{fancyhdr} %デザイン設定
+\usepackage{shuron} %修論用スタイル
+\usepackage{url} %URL表示用
+\usepackage[dvipdfmx]{graphicx} %画像ファイル用
+\usepackage{flafter} %図の位置が図参照より後になるように
+\usepackage{subfigure} %部分図
+\usepackage{mediabb} %PDFファイルを画像として参照
+\usepackage{listings,jlisting} %プログラムコード用
+\usepackage{amsmath, amssymb} %オーダ記号などの数学記号
+%\usepackage{theorem} %定義
+\usepackage{multirow} %縦に跨がる表
+\usepackage{multicol} %段落
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{algcompatible}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+
+\renewcommand{\lstlistingname}{プログラム}
+\renewcommand{\lstlistlistingname}{プログラムコード一覧}
+\lstset{language=Java,
+        basicstyle=\footnotesize,
+        commentstyle=\textit,
+        classoffset=1,
+        keywordstyle=\bfseries,
+         showstringspaces=false,
+        tabsize=4,
+        frame=lines,
+        numbers=left,
+        numberstyle=\scriptsize,
+        numbersep=5pt,
+        escapechar=\#
+}
+%\theoremstyle{break}
+%\newtheorem{define}{定義}
+%\newcommand{\transprog}{$ P \xrightarrow{\mathcal{T}} P'$}
+
+\newcommand{\textref}[1]{\ref{#1}節(p.\pageref{#1})}
+\newcommand{\figref}[1]{\figurename~\ref{#1}}
+\newcommand{\tblref}[1]{\tablename~\ref{#1}}
+\newcommand{\cdref}[1]{\lstlistingname~\ref{#1}}
+\newcommand{\chapterref}[1]{\prechaptername \ref{#1} \postchaptername}
+
+\def\PT{$\mathsf{P^T}$}
+\def\PF{$\mathsf{P^F}$}
+
+\makeatletter
+  \def\@cite#1{\textsuperscript{[#1]}}
+  \renewcommand{\ALG@name}{変換規則}
+\makeatother
+
+\voffset=-10.5mm
+
+\begin{document}
+\setcounter{page}{0}
+\thispagestyle{empty}
+\noindent
+\begin{tabular}{c}
+{\ueclogo B} \vspace{1.5cm}     \\
+{\Large 平成26年度 修士論文}    \\
+\end{tabular}
+
+\vspace{2.0cm}
+
+\begin{center}
+{\huge \bf ロールベースのP2Pライブストリーミングアーキテクチャの研究}
+\end{center}
+
+\vspace{3cm}
+
+\LARGE
+\begin{flushright}
+電気通信大学~大学院情報システム学研究科         \\
+情報システム基盤学専攻                          \\
+1353015~~鈴木 駿介                              \\
+
+\vspace{2cm}
+
+{\def\arraystretch{0.6}
+\begin{tabular}{rll@{}}
+指導教員        & 多田 好克     & 教授                \\
+                & 末田 欣子     & 客員准教授                  \\
+                & 古賀 久志     & 准教授                \\
+                                                        \\
+提出日          & \multicolumn{2}{c@{}}{平成27年1月27日}        \\
+\end{tabular}
+}
+\end{flushright}
+
+\normalsize
+\newpage
+
+\setcounter{tocdepth}{2}
+\pagenumbering{roman}
+\tableofcontents
+%\setcounter{page}{1}
+
+\listoffigures
+
+\listoftables
+
+\lstlistoflistings
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{導入}
+\pagenumbering{arabic}
+\input{tex/abstract.tex}
+
+\clearpage
+\chapter{背景} \label{txt:introductions}
+\input{tex/introductions.tex}
+
+%% \clearpage
+%% \chapter{関連研究} \label{txt:related}
+%% \input{tex/related.tex}
+
+\clearpage
+\chapter{提案手法} \label{txt:proposed}
+\input{tex/proposed.tex}
+
+\clearpage
+\chapter{評価} \label{txt:eval}
+\input{tex/eval.tex}
+
+\clearpage
+\chapter{まとめと今後の課題} \label{txt:conclusion}
+\input{tex/conclusion.tex}
+
+\clearpage
+
+\ackn{
+本研究を遂行するにあたり、様々な方々にお世話になりました。
+
+これまでの人生で出会った方々のおかげであります。
+皆様への心から感謝の気持ちと御礼を申し上げたく、謝辞にかえさせていただきます。
+
+\begin{flushright}
+  2014年1月吉日 鈴木駿介
+\end{flushright}
+}
+
+\clearpage
+
+\input{tex/bib.tex}
+
+\appendix
+\input{tex/appendix.tex}
+\end{document}

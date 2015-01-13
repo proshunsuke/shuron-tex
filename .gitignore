@@ -1,0 +1,14 @@
+*.doc
+*.aux
+*.div
+*.log
+*.pdf
+*.lof
+*.lol
+*.lot
+*.out
+*.toc
+*~
+ueclogo*
+*.tar.gz
+*.eps
