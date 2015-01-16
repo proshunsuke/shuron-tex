@@ -12,3 +12,5 @@
 ueclogo*
 *.tar.gz
 *.eps
+*.xcf
+*#
