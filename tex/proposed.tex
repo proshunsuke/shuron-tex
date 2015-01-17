@@ -32,8 +32,8 @@ P2Pライブストリーミングを行う際に, 特別なサーバに頼るこ
 1つ目は「閾値に基づくダイジェスト生成方式」である. これはユーザ数が増加している時を始点, ユーザ数が減少している時を終点とし, 始点から終点までで最もユーザ数の多い点を「突出点」として抽出する方式である. ユーザ数の増加率と減少率をそれぞれ閾値として決定し, それぞれの値を超えた時を始点または終点として定義する. これは以下の式\ref{siki:sikiiti}に従う.
 
 \begin{eqnarray}
-\frac{X_{t+T}-X_{t}}{X_{t}} \geq ThならばX_{t}は始点 \nonumber \\
-（X_{t}は時刻tにおけるユーザ数,Tは一定期間, Thは閾値）&&
+\frac{X_{t+T}-X_{t}}{X_{t}} \geq Th_{inc}ならばX_{t}は始点, \frac{X_{t+T}-X_{t}}{X_{t}} \leq Th_{dec}ならばX_{t}は始点 \nonumber \\
+（X_{t}は時刻tにおけるユーザ数,Tは一定期間, Th_{inc}とTh_{dec}は閾値）&&
 \label{siki:sikiiti}
 \end{eqnarray}
 
@@ -52,8 +52,8 @@ P2Pライブストリーミングを行う際に, 特別なサーバに頼るこ
 2つ目は「前後比較に基づくダイジェスト生成方式」である. これは, ある点についてユーザ数が前後で増加かつ減少している場合を「突出点」として抽出する方式である. この方式も1つ目の方式と同様にユーザ数の増加率と減少率をそれぞれ閾値として決定し, それぞれの値を超えた場合に「突出点」を決定する. これは以下の式\ref{siki:zengo}に従う.
 
 \begin{eqnarray}
-\frac{X_{t}-X_{t-T}}{X_{t}}>ThZokaかつ\frac{X_{t+T}-X_{t}}{X_{t}}>ThGenならばX_{t}がダイジェスト \nonumber \\
-(X_{t}は時刻tにおけるユーザ数, Tは一定期間, ThZokaとThGenは閾値) &&
+\frac{X_{t}-X_{t-T}}{X_{t}} \geq Th_{inc}かつ\frac{X_{t+T}-X_{t}}{X_{t}} \geq Th_{dec}ならばX_{t}がダイジェスト \nonumber \\
+(X_{t}は時刻tにおけるユーザ数, Tは一定期間, Th_{inc}とTh_{dec}は閾値) &&
 \label{siki:zengo}
 \end{eqnarray}
 
@@ -70,9 +70,9 @@ P2Pライブストリーミングを行う際に, 特別なサーバに頼るこ
 3つ目は「最小二乗法に基づくダイジェスト生成方式」である. これは, ユーザ数増減グラフに最小二乗法を適応し直線の重なりが鋭角な点を「突出点」とし抽出する方式である. 最小二乗法を適応した際の直線の重なりの角度を閾値として決定し, その値を超えた場合にその点を「突出点」として決定する. これは以下の式\ref{siki:jijo}に従う.
 
 \begin{eqnarray}
-\arctan \left(\frac{line2\_slope - line1\_slope}{1+line2\_slope*line1\_slope}\right) < ThAngle \nonumber \\
+\arctan \left(\frac{slope_{line2} - slope_{line1}}{1+slope_{line2}*slope_{line1}}\right) < Th_{Angle} \nonumber \\
 ならば直線の重なり部分がダイジェスト \nonumber \\
-(line1\_slopeおよびline2\_slopeは直線の傾き, ThAngleは閾値) &&
+(slope_{line1}およびslope_{line2}は直線の傾き, Th_{Angle}は閾値) &&
 \label{siki:jijo}
 \end{eqnarray}
 
