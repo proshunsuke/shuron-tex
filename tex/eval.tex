@@ -219,41 +219,152 @@
 適合率は「最小二乗法に基づくダイジェスト生成方式」が最も適切であることがわかった. これは, その他の方式では雑音となる突発的な瞬間を誤検知してしまったのに対し, こちらの方式では最小二乗法を適応していることで, より自然な盛り上がり部分をダイジェストとして捉え, 検出出来ているからではないかと考えられる.
 
 \section{トポロジ設計に対する評価}
-シミュレーションにより評価
+トポロジ設計に対する評価を行う. 評価はシミュレーションで行った. シミュレーションではNS-2を用いた. 提案システムでは各ノードに役割を与えたトポロジを設計した. その各役割の適切な割合についての評価を行う. また, 役割が適切に機能しているかの評価を行う. さらに, P2Pネットワーク内に十分なダイジェストを保有できているかを評価する.
 
-\subsection{実験環境}
-実験環境の表、cpu,os
-
-\subsubsection{NS-2}
-NS-2の説明、tcl/tkの説明
-
-\subsubsection{goddard}
-goddardの説明
+% ここから下少し適当
 
 \subsection{前提条件}
-帯域幅分布、コメント数分布、ノード数とクラスタ
+※ここから少し適当
 
-それぞれ表
+シミュレーションを行う上でいくつかの前提となる条件について述べる. 前提となる項目は「帯域幅分布」, 「コメント数分布」, 「ノード数とクラスタ」がある. それぞれについての前提条件を決定する.
 
-参加離脱を考慮、複数回参加と離脱を行う、参加と離脱はノードにパケットを送ったかどうかで判断
+全ノードには固有の帯域幅を割り当てる. 「帯域幅分布」は表\ref{tbl:band-dist}のように決定する.
 
-ノード数が200の時の、役割を与えた場合と与えない場合のトポロジ図
+\begin{table}[h]
+  \caption{帯域幅分布}
+  \label{tbl:band-dist}
+  \centering
+      {\small
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|} \hline
+          \shortstack{帯域幅 \\ (kbps)} & 256 & 320 & 384 & 448 & 512 & 640 & 768 & 1024 & 1500 & 3000 \\ \hline
+          \shortstack{割合 \\ (\%)} & 10.0 & 14.3 & 8.6 & 12.5 & 2.2 & 1.4 & 6.6 & 28.1 & 1.4 & 14.9 \\ \hline
+        \end{tabular}
+      }
+\end{table}
+
+また全ノードには固有のコメント数を割り当てる. サンプルとして1つの動画に対して分析を行った結果を利用する\cite{comment}. 平均コメント数は4で標準偏差は6.8である. 分析の結果を図\ref{fig:comment-res}に示す.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\hsize]{fig/comment-res.eps}
+  \caption{コメント数分析の結果}
+  \label{fig:comment-res}
+\end{figure}
+
+固有のコメント数を割り当てた結果である, 「コメント数分布」は表\ref{tb:comment-dist}のように決定する.
+
+\begin{table}[h]
+  \caption{コメント数分布}
+  \label{tbl:comment-dist}
+  \centering
+      {\small
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|} \hline
+          \shortstack{コメント数} & 2 & 5 & 7 & 10 & 12 & 15 & 17 & 20 & 22 & 25 \\ \hline
+          \shortstack{割合 \\ (\%)} & 16 & 17 & 17 & 16 & 15 & 13 & 10 & 2 & 1 & 1 \\ \hline
+        \end{tabular}
+      }
+\end{table}
+
+
+
+全ノード数に応じたクラスタの数を予め設定する. 全ノード数とクラスタ数対応表である, 「ノード数とクラスタ」を表\ref{tbl:cluster-dist}のように決定する.
+
+\begin{table}[h]
+  \caption{ノード数とクラスタ数対応表}
+  \label{tbl:cluster-dist}
+  \centering
+      {\small
+        \begin{tabular}{|c|c|c|c|c|} \hline
+          \shortstack{ノード数} & 200 & 400 & 600 & 800 \\ \hline
+          \shortstack{クラスタ数} & 7 & 10 & 14 & 18  \\ \hline
+        \end{tabular}
+      }
+\end{table}
+
+その他の前提条件として, ノード間遅延を全てのノード間で100msに設定している. またパケットロス率は0\%として考慮しないこととする. また, 参加離脱を考慮した実験においては, 10秒に1回参加と離脱を行うこととする. 参加はランダムであり, 最初はダイジェスト未取得のノーマルノードとなる. ダイジェスト未取得のノーマルノードは24秒経つとダイジェスト取得済みのダイジェストノードとなる. また, シミュレーションにおいての参加離脱はノードにパケットが流れたかどうかで判断する.
+
+ノード数が200の時の、役割を与えた場合と与えない場合のトポロジ図をそれぞれ図\ref{fig:topology-role}と図\ref{fig:topology-no-role}に示す.
+
+\newpage
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\hsize]{fig/topology-role.eps}
+  \caption{役割を与えた場合のトポロジ図}
+  \label{fig:topology-role}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\hsize]{fig/topology-no-role.eps}
+  \caption{役割を与えない場合のトポロジ図}
+  \label{fig:topology-no-role}
+\end{figure}
+
+\newpage
 
 \subsection{適切な役割の割合の決定}
-閾値を決定する
+提案するトポロジにはいくつか役割が存在する.このうち「ゲートノード」, 「セミゲートノード」, 「ダイジェストノード」の役割の適切な割合を決定する. まず最初に「ダイジェストノード」の割合を, 次に「ゲートノード」と「セミゲートノード」の割合を決定する.
 
 \subsubsection{ダイジェストノードの割合}
-グラフと結果
+ダイジェストノードの割合をそれぞれ, 全ノードの10\%, 20\%, 30\%で割合を変え, スループットの値を比較した. 図\ref{fig:digest-rate}に結果を示す.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\hsize]{fig/digest-rate.eps}
+  \caption{ダイジェストノードの割合を変化させた時の結果}
+  \label{fig:digest-rate}
+\end{figure}
+
+実験の結果, 10\%の時の平均スループットが265.71kbps, 20\%の時の平均スループットが573.12kbps, 30\%の時の平均スループットが414.63\%であった. 20\%の時が最もスループットの値が大きく, 適切な値であることがわかった.
 
 \subsubsection{ゲートノードとセミゲートノードの割合}
-グラフと結果
+次にゲートノードとセミゲートノードの割合を決定する. ゲートノードとセミゲートノードは常に1対2の関係となるため, 一緒に決定する. 全ノードのそれぞれ10\%と20\%, 20\%と40\%で割合を変え, スループットの値を比較した. 図\ref{fig:gate-semi-rate}に結果を示す.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\hsize]{fig/gate-semi-rate.eps}
+  \caption{ゲートノードとセミゲートノードの割合を変化させた時の結果}
+  \label{fig:gate-semi-rate}
+\end{figure}
+
+実験の結果, 10\%と20\%の時の平均スループットが446.33kbps, 20\%と40\%の時の平均スループットが413.48kbpsであった. どちらもそれほど変わらないが, 10\%と20\%の方がスループットの値が大きかった. しかし, グラフを見るとノード数が小さい時は10\%と20\%の時の方が値が高く, ノード数が大きい時は20\%と40\%の時の方が値が高かった. この結果, ノード数によって割合を変えることが良いことがわかった.
 
 \subsection{役割の適切性に対する評価}
-役割を与えた場合のスループットの推移のグラフ
+次に役割を与えたことの適切性に対する評価を行う. 図\ref{fig:throughput-role}に役割を与えた場合のスループットの推移の様子を示す.
 
-役割を与えない場合のスループットの推移のグラフ
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\hsize]{fig/throughput-role.eps}
+  \caption{各ノード数におけるスループットの推移}
+  \label{fig:throughput-role}
+\end{figure}
 
-役割を与えた場合と与えない場合のスループットの推移の比較のグラフ
+\newpage
+
+図\ref{fig:throughput-no-role}に役割を与えない場合のスループットの推移の様子を示す.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\hsize]{fig/throughput-no-role.eps}
+  \caption{役割を与えない場合の各ノード数におけるスループットの推移}
+  \label{fig:throughput-no-role}
+\end{figure}
+
+\newpage
+
+図\ref{fig:throughput-compare}に2つの場合を比較した様子を示す.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\hsize]{fig/throughput-compare.eps}
+  \caption{役割を与えない場合の各ノード数におけるスループットの推移の平均の比較}
+  \label{fig:throughput-compare}
+\end{figure}
+
+\newpage
 
 \subsection{ダイジェスト保有率に対する評価}
 一定時間経つとダイジェスト未取得ノードはダイジェスト取得ノードになる
@@ -266,5 +377,4 @@ goddardの説明
 役割を与えることの有用性確認できた、接続数を分散できたため
 
 ダイジェスト保有率は高かった、コメント数の多いノードにダイジェストをもたせたため
-
 
