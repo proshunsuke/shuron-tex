@@ -1,0 +1,57 @@
+% 「修士論文の和文要旨」を作るためのスタイルファイル。
+%                                        平成２年度版 
+%                                         By 上原隆平
+
+% 92-1-22  ページ番号出力の抑制           shuji@cs.uec.ac.jp
+% 92-2-11  論文題目欄の parbox 化         石井秀浩 (hide@cs.uec.ac.jp)
+%   同     マージンのずれ修正                同
+% 93-12-8  電気通信学研究科の追加         小山恵一 (keiichi@argus.cs.uec.ac.jp)
+% 94-1-22  枠の大きさと太さの調整            同
+% 95-1-17  94年度版                       yamasaki@phys.uec.ac.jp
+% 95-1-24  94年度版 大幅改低		  たむら＠神原研
+
+\topmargin = -25mm
+\oddsidemargin = -6mm
+\evensidemargin = -6mm
+\textwidth = 178mm
+\textheight =266mm
+\unitlength = 1mm
+\pagestyle{empty}
+\def\writeall{
+  \begin{center}
+  {\LARGE\bf 修\hspace{8pt}士\hspace{8pt}論\hspace{8pt}文\hspace{8pt}の\hspace{8pt}和\hspace{8pt}文\hspace{8pt}要\hspace{8pt}旨}
+  \end{center}
+  \vspace*{3mm}
+  \begin{picture}(178,246)
+  \linethickness{0.4mm}
+  \put(0,0){\framebox(178,246){}}
+  \put(0,210){\line(1,0){178}}
+  \linethickness{0.1mm}
+  \put(0,228){\line(1,0){178}}
+  \put(0,236){\line(1,0){178}}
+
+  \put(36,210){\line(0,1){26}}
+  \put(110,228){\line(0,1){8}}
+
+  \put(0,236){\makebox(178,8){大\hs3学\hs3院\hs3情\hs3報\hs3システム\hs3学\hs3研\hs3究\hs3科 \hspace{10mm}\hs3博\hs3士\hs3前\hs3期\hs3課\hs3程 \hspace{20mm} 
+\parbox{40mm}{\center \@yourclass}専\hspace{5mm}攻}}
+  \put(110,228){\makebox(60,8){学\hs3籍\hs3番\hs3号\parbox{31mm}{\center \@yournum}}}
+  \put(0,228){\makebox(36,8){氏\hspace{57pt}名}}
+  \put(36,228){\makebox(70,8){\Large \@yourname}}
+  \put(0,210){\makebox(36,18){論\hspace{13pt}文\hspace{13pt}題\hspace{13pt}目}}
+  \put(36,210){\makebox(142,18){\null\raisebox{18pt}{\parbox{142mm}{\center\Large \@yourtitle}}}}
+  \put(2,2){\makebox(174,206)[t]{ \noindent
+  \begin{minipage}{174mm} \baselineskip=20pt \parindent=12pt \noindent \hspace*{2pt} 要\hspace{36pt}旨 \\ \@youryoushi \end{minipage}}}
+  \end{picture}
+
+\begin{flushright}
+（大\hs3学\hs3院\hs3情\hs3報\hs3シ\hs3ス\hs3テ\hs3ム\hs3学\hs3研\hs3究\hs3科）
+\end{flushright}
+
+}
+\def\hs3{\hspace{2pt}}
+\def\yourclass#1{\gdef\@yourclass{#1}}
+\def\yournum#1{\gdef\@yournum{#1}}
+\def\yourname#1{\gdef\@yourname{#1}}
+\def\yourtitle#1{\gdef\@yourtitle{#1}}
+\def\youryoushi#1{\gdef\@youryoushi{#1}}
