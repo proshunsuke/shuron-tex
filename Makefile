@@ -13,3 +13,8 @@ d:
 pdf:
 	cd $(file_path)
 	acroread main.pdf &
+abst:
+	cd $(file_path)
+	platex -interaction=nonstopmode abst.tex
+	dvipdfmx abst
+	firefox abst.pdf &

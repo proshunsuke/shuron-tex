@@ -12,13 +12,13 @@
 \usepackage{multirow} %縦に跨がる表
 \usepackage{multicol} %段落
 \usepackage{algorithm}
-%\usepackage{algorithmic}
+%% \usepackage{algorithmic}
 \usepackage{algcompatible}
 \usepackage[dvipdfmx]{hyperref}
 \usepackage{pxjahyper}
 
-%% \renewcommand{\lstlistingname}{プログラム}
-%% \renewcommand{\lstlistlistingname}{プログラムコード一覧}
+\renewcommand{\lstlistingname}{プログラム}
+\renewcommand{\lstlistlistingname}{プログラムコード一覧}
 \lstset{language=Java,
         basicstyle=\footnotesize,
         commentstyle=\textit,
@@ -103,7 +103,7 @@
 %% \lstlistoflistings
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{導入}
+\chapter{はじめに}
 \pagenumbering{arabic}
 \input{tex/abstract.tex}
 
@@ -150,5 +150,5 @@
 \input{tex/bib.tex}
 
 \appendix
-%% \input{tex/appendix.tex}
+\input{tex/appendix.tex}
 \end{document}
